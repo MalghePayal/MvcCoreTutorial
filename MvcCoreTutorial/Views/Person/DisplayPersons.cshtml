@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MvcCoreTutorial.Models.Domain.Person>
+@{
+}
+
+<div class="mt-2" style="width:50%">
+   
+        <h2> Person List</h2>
+        <div class="mb-3">
+            <table class="table table-striped">
+                <thead>
+             <tr>
+                <th>Person Id</th>
+                <th>Name</th>
+                <th>Email </th>
+                <th>Action</th>
+            </tr>
+
+            @foreach (var Person in Model)    
+            {
+                <tr>
+                        <td>@Person.PersonId</td>
+                    <td>@Person.Name</td>
+                    <td>@Person.Email</td>
+                        <td>
+                        <a class="btn btn-success" href="/Person/EditPerson?id=@Person.PersonId">Edit</a>
+                        <a class=" btn btn-danger" href="/Person/DeletePerson?id=@Person.PersonId">Delete</a>
+                    </td>
+                   
+                </tr>
+            }
+            </thead>
+            </table>
+        </div>
+       
+       <div class="row">
+           <div class="col-md-4">
+            <a href="/Person/AddPerson" class="btn btn-primary">Add Person</a>
+           </div>
+       </div>
+      
+   
+</div>
